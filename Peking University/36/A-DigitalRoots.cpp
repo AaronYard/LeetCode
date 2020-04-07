@@ -10,7 +10,7 @@ For example, consider the positive integer 24. Adding the 2 and the 4 yields a v
 
 输入输出格式
 输入描述:
-The input file will contain a list of positive integers, one per line. 
+The input file will contain a list of positive integers, one per line.
 The end of the input will be indicated by an integer value of zero.
 输出描述:
 For each integer in the input, output its digital root on a separate line of the output.
@@ -27,37 +27,45 @@ For each integer in the input, output its digital root on a separate line of the
 3
 *****/
 
-#include <math>
+//wrong，must correction
+
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-long int diedai(long int IntegerSumA){
-	long int temp = IntegerSumA;
-	long int IntegerSumB = 0;
-	if(temp != 0){
-		IntegerSumB += temp - temp%10;
-		temp = temp%10;
+long int diedai(long long IntegerSumA) {
+	long long temp = IntegerSumA;
+	long long IntegerSumB = 0;
+	if (temp != 0) {
+		IntegerSumB += temp - temp % 10;
+		temp = temp % 10;
 	}
-	if(IntegerSumA%IntegerSumB)
+	if (IntegerSumA % IntegerSumB)
 	{
 		return IntegerSumB;
-	}else{
+	}
+	else {
 		diedai(IntegerSumB);
 	}
 }
 
-int main(){
-	long int[] IntegerList=[];
-	
-	cout>>"Please input a list of positive intergers,the end must input zero.">>endl;
-	when(getline() != 0){
-		IntegerList[totalInteger] = getline();
+int main() {
+	long long IntegerList[] = {0,0,0};
+	string a;
+
+	cout << "Please input a list of positive intergers,the end must input zero." << endl;
+	getline(cin, a);
+	long totalInteger = 0;
+	while (stoll(a) != 0) {
+		IntegerList[totalInteger] = stoll(a);
+		totalInteger++;
 	}
-	cout<<"This is your Output list"<<endl;
-	for(long int i = 0;i < IntegerList.count;i++)
+	cout << "This is your Output list" << endl;
+	for (long long i = 0; i <= sizeof(IntegerList) / sizeof(IntegerList[0]); i++)
 	{
-		IntegerList[i] = diedai(IntegerList[i])
-			cout<<IntegerList[i]<<endl;
+		IntegerList[i] = diedai(IntegerList[i]);
+		cout <<  IntegerList[i] << endl;
 	}
 	return 0;
 }
