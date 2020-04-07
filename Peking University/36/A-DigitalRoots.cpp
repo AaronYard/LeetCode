@@ -28,6 +28,7 @@ For each integer in the input, output its digital root on a separate line of the
 *****/
 
 //wrong，must correction
+//别人的做法，堆栈、数组。
 
 #include <iostream>
 #include <string>
